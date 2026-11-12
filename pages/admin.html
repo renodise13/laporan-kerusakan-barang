@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Laporan Kerusakan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body data-page="admin" data-require-auth="true" data-role="admin">
+    <div class="app-shell">
+      <aside class="sidebar admin-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">L</div>
+          <div>
+            <div class="brand-name">Laporan Kerusakan</div>
+            <small>Admin panel</small>
+          </div>
+        </div>
+
+        <nav class="side-nav">
+          <a href="admin.html" class="nav-item active">Dashboard Admin</a>
+          <a href="riwayat.html" class="nav-item">Riwayat Laporan</a>
+          <a href="profil.html" class="nav-item">Profil</a>
+        </nav>
+
+        <button id="logoutBtn" class="logout-btn" type="button">Keluar</button>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="topbar-label">Petugas sarpras</p>
+            <h1 id="adminWelcome">Dashboard Admin</h1>
+          </div>
+        </header>
+
+        <section class="stats-grid">
+          <article class="stat-card total-card">
+            <span>Total laporan</span>
+            <strong id="adminTotal">0</strong>
+          </article>
+          <article class="stat-card warning-card">
+            <span>Menunggu</span>
+            <strong id="adminWaiting">0</strong>
+          </article>
+          <article class="stat-card info-card">
+            <span>Diproses</span>
+            <strong id="adminProgress">0</strong>
+          </article>
+          <article class="stat-card success-card">
+            <span>Selesai</span>
+            <strong id="adminDone">0</strong>
+          </article>
+        </section>
+
+        <section class="panel monthly-panel">
+          <div class="panel-header monthly-header">
+            <div>
+              <h2>Rekap laporan bulanan</h2>
+              <p>Pilih bulan untuk melihat laporan masuk dan progres penyelesaiannya.</p>
+              <button id="importLocalReports" class="secondary-btn import-reports-btn" type="button">Impor laporan lama dari perangkat ini</button>
+            </div>
+            <div class="monthly-actions">
+              <label class="month-picker">
+                <span>Bulan</span>
+                <select id="adminMonthFilter" aria-label="Pilih bulan rekap"></select>
+              </label>
+              <button id="downloadMonthlyReport" class="primary-btn" type="button">Download rekap</button>
+            </div>
+          </div>
+
+          <div class="stats-grid monthly-stats">
+            <article class="stat-card total-card">
+              <span>Laporan masuk</span>
+              <strong id="monthlyTotal">0</strong>
+            </article>
+            <article class="stat-card warning-card">
+              <span>Menunggu</span>
+              <strong id="monthlyWaiting">0</strong>
+            </article>
+            <article class="stat-card info-card">
+              <span>Diproses</span>
+              <strong id="monthlyProgress">0</strong>
+            </article>
+            <article class="stat-card success-card">
+              <span>Selesai</span>
+              <strong id="monthlyDone">0</strong>
+            </article>
+          </div>
+
+          <div class="table-wrap">
+            <table class="monthly-table">
+              <thead>
+                <tr>
+                  <th>Nomor Tiket</th>
+                  <th>Pelapor</th>
+                  <th>Barang</th>
+                  <th>Kategori</th>
+                  <th>Lokasi</th>
+                  <th>Status</th>
+                  <th>Tanggal Masuk</th>
+                </tr>
+              </thead>
+              <tbody id="monthlyTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header compact-header">
+            <h2>Filter laporan</h2>
+          </div>
+          <div class="filter-grid">
+            <input id="adminSearch" type="text" placeholder="Cari nomor tiket / nama barang / lokasi" />
+            <select id="adminStatusFilter">
+              <option value="all">Semua status</option>
+              <option value="Menunggu">Menunggu</option>
+              <option value="Sedang Diproses">Sedang Diproses</option>
+              <option value="Selesai">Selesai</option>
+            </select>
+            <select id="adminCategoryFilter">
+              <option value="all">Semua kategori</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nomor Tiket</th>
+                  <th>Pelapor</th>
+                  <th>Barang</th>
+                  <th>Lokasi</th>
+                  <th>Kategori</th>
+                  <th>Status</th>
+                  <th>Tanggal</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="adminTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

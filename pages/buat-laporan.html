@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buat Laporan - Laporan Kerusakan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body data-page="buat-laporan" data-require-auth="true" data-role="user">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">L</div>
+          <div>
+            <div class="brand-name">Laporan Kerusakan</div>
+            <small>Reporting system</small>
+          </div>
+        </div>
+
+        <nav class="side-nav">
+          <a href="dashboard.html" class="nav-item">Dashboard</a>
+          <a href="buat-laporan.html" class="nav-item active">Buat Laporan</a>
+          <a href="riwayat.html" class="nav-item">Riwayat Laporan</a>
+          <a href="profil.html" class="nav-item">Profil</a>
+        </nav>
+
+        <button id="logoutBtn" class="logout-btn" type="button">Keluar</button>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="topbar-label">Buat laporan baru</p>
+            <h1>Formulir kerusakan fasilitas</h1>
+          </div>
+        </header>
+
+        <section class="panel form-panel">
+          <form id="reportForm" class="report-form">
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="reporterName">Nama pelapor</label>
+                <input id="reporterName" name="reporterName" type="text" required />
+              </div>
+
+              <div class="field-group">
+                <label for="reporterClass">Kelas / Unit</label>
+                <input id="reporterClass" name="reporterClass" type="text" placeholder="Contoh: XI IPA 2" required />
+              </div>
+
+              <div class="field-group">
+                <label for="itemName">Nama barang / fasilitas</label>
+                <input id="itemName" name="itemName" type="text" list="itemOptions" placeholder="Contoh: Meja, Kipas Angin, Proyektor" required />
+                <datalist id="itemOptions">
+                  <option value="Meja"></option>
+                  <option value="Kursi"></option>
+                  <option value="Papan Tulis"></option>
+                  <option value="Kipas Angin"></option>
+                  <option value="Lampu"></option>
+                  <option value="Pintu"></option>
+                  <option value="Jendela"></option>
+                  <option value="Proyektor"></option>
+                  <option value="Toilet"></option>
+                  <option value="Fasilitas Lainnya"></option>
+                </datalist>
+              </div>
+
+              <div class="field-group">
+                <label for="category">Kategori kerusakan</label>
+                <select id="category" name="category" required>
+                  <option value="">Pilih kategori</option>
+                  <option value="Bangunan">Bangunan</option>
+                  <option value="Elektronik">Elektronik</option>
+                  <option value="Perabot">Perabot</option>
+                  <option value="Kebersihan">Kebersihan</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="location">Lokasi kerusakan</label>
+                <input id="location" name="location" type="text" placeholder="Contoh: Ruang Kelas 7A" required />
+              </div>
+
+              <div class="field-group">
+                <label for="priority">Tingkat prioritas</label>
+                <select id="priority" name="priority" required>
+                  <option value="">Pilih prioritas</option>
+                  <option value="Rendah">Rendah</option>
+                  <option value="Sedang">Sedang</option>
+                  <option value="Tinggi">Tinggi</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="description">Deskripsi kerusakan</label>
+              <textarea id="description" name="description" rows="5" placeholder="Jelaskan kondisi kerusakan secara detail..." required></textarea>
+            </div>
+
+            <div class="field-group">
+              <label for="photo">Upload foto kerusakan</label>
+              <input id="photo" name="photo" type="file" accept="image/png,image/jpeg,image/jpg" required />
+              <small class="helper-text">Maksimal ukuran file sekitar 1 MB setelah kompresi. Format JPG/JPEG/PNG didukung.</small>
+            </div>
+
+            <div id="previewBox" class="image-preview hidden">
+              <img id="previewImage" alt="Preview laporan" />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Kirim Laporan</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/laporan.js"></script>
+  </body>
+</html>

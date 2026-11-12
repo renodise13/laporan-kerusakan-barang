@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Laporan Kerusakan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="login-body">
+    <div class="login-shell">
+      <aside class="brand-panel">
+        <div class="brand-badge">Laporan Kerusakan</div>
+        <h1>Sistem Pelaporan Kerusakan Sarana & Prasarana Sekolah</h1>
+        <p>
+          Mudahkan siswa dan guru dalam melaporkan kerusakan fasilitas sekolah, serta
+          membantu petugas sarana dan prasarana menindaklanjuti dengan cepat.
+        </p>
+        <ul class="feature-list">
+          <li>Pelaporan cepat dan terstruktur</li>
+          <li>Monitoring status real-time</li>
+          <li>Foto kerusakan dan perbaikan tersimpan</li>
+        </ul>
+      </aside>
+
+      <main class="auth-panel">
+        <div class="auth-card">
+          <div class="auth-header">
+            <span class="eyebrow">Akses website</span>
+            <h2>Masuk ke akun</h2>
+          </div>
+
+          <form id="loginForm" novalidate>
+            <div class="field-group">
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="Masukkan username" autocomplete="username" required />
+            </div>
+
+            <div class="field-group">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="Masukkan password" autocomplete="current-password" required />
+            </div>
+
+            <p id="authMessage" class="auth-message" aria-live="polite"></p>
+            <button id="loginSubmit" type="submit" class="primary-btn">Masuk</button>
+          </form>
+
+          <div class="demo-box">
+            <h3>Akun yang tersedia</h3>
+            <div class="demo-account">
+              <strong>Siswa/Siswi:</strong>
+              <span>Username: siswapesat</span>
+            </div>
+            <div class="demo-account">
+              <strong>Guru:</strong>
+              <span>Username: gurupesat</span>
+            </div>
+            <div class="demo-account">
+              <strong>Admin:</strong>
+              <span>Username: admin01</span>
+            </div>
+            <small class="auth-note">Password diberikan oleh pengelola. Pendaftaran akun baru tidak tersedia.</small>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

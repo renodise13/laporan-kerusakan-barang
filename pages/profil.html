@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil - Laporan Kerusakan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body data-page="profil" data-require-auth="true">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">L</div>
+          <div>
+            <div class="brand-name">Laporan Kerusakan</div>
+            <small>Reporting system</small>
+          </div>
+        </div>
+
+        <nav class="side-nav">
+          <a href="dashboard.html" class="nav-item">Dashboard</a>
+          <a href="buat-laporan.html" class="nav-item">Buat Laporan</a>
+          <a href="riwayat.html" class="nav-item">Riwayat Laporan</a>
+          <a href="profil.html" class="nav-item active">Profil</a>
+        </nav>
+
+        <button id="logoutBtn" class="logout-btn" type="button">Keluar</button>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="topbar-label">Pengaturan akun</p>
+            <h1>Profil pengguna</h1>
+          </div>
+        </header>
+
+        <section class="panel profile-card">
+          <div class="profile-avatar" id="profileAvatar">U</div>
+          <div class="profile-content">
+            <div class="profile-row">
+              <span>Nama</span>
+              <strong id="profileName">-</strong>
+            </div>
+            <div class="profile-row">
+              <span>Username</span>
+              <strong id="profileUsername">-</strong>
+            </div>
+            <div class="profile-row">
+              <span>Jenis akun</span>
+              <strong id="profileRole">-</strong>
+            </div>
+            <button id="profileLogoutBtn" class="primary-btn" type="button">Logout</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/laporan.js"></script>
+  </body>
+</html>
